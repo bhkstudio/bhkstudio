@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAPNuqfTHu1t0yV_RT3Wy0MARsg0smfKS8",
+    authDomain: "workstore-b3672.firebaseapp.com",
+    databaseURL: "https://workstore-b3672.firebaseio.com",
+    projectId: "workstore-b3672",
+    storageBucket: "workstore-b3672.appspot.com",
+    messagingSenderId: "890425938847"
+  };
+  firebase.initializeApp(config);
+var database = firebase.database();
+var rootRef = database.ref();
+rootRef.on('value', function(snapshot) {
+//StartOfLastDate
+var lastupdate = snapshot.val().lastupdate;
+
+$('#LastUpdate').empty().append(lastupdate.substring(0,2) + "/" + lastupdate.substring(2,4) + "/" +lastupdate.substring(4,9));
+
+//Chicken
+var ChickenRef = database.ref('Chicken/');
+ChickenRef.on('value', function(snapshot) {
+var Chicken = snapshot.val();
+    if (Chicken != null && Chicken !== undefined) {
+        $('#item_6mm').empty().append(Chicken.item_6mm + " ½c");
+		$('#item_1cm').empty().append(Chicken.item_1cm + " ½c");
+		$('#item_1inch').empty().append(Chicken.item_1inch + " ½c");
+		$('#item_2inch').empty().append(Chicken.item_2inch + " ½c");
+		$('#item_wing').empty().append(Chicken.item_wing + " ½c");
+    }else{
+		$('#item_6mm').empty().append("NIL");
+		$('#item_1cm').empty().append("NIL");
+		$('#item_1inch').empty().append("NIL");
+		$('#item_2inch').empty().append("NIL");
+		$('#item_wing').empty().append("NIL");
+	}
+
+});
+var PorkRef = database.ref('Pork/');
+PorkRef.on('value', function(snapshot) {
+var Pork = snapshot.val();
+    if (Pork != null && Pork !== undefined) {
+        $('#item_chop').empty().append(Pork.item_chop + " ½c");
+		$('#item_inch').empty().append(Pork.item_inch + " ½c");
+		$('#item_line').empty().append(Pork.item_line + " ½c");
+		$('#item_P_slice').empty().append(Pork.item_P_slice + " ½c");
+		$('#item_sparerib').empty().append(Pork.item_sparerib + " ½c");
+		$('#item_P_mm').empty().append(Pork.item_P_mm + " ½c");
+    }else{
+		$('#item_chop').empty().append("NIL");
+		$('#item_inch').empty().append("NIL");
+		$('#item_line').empty().append("NIL");
+		$('#item_P_slice').empty().append("NIL");
+		$('#item_sparerib').empty().append("NIL");
+		$('#item_P_mm').empty().append("NIL");
+	}
+
+});
+var BeefRef = database.ref('Beef/');
+BeefRef.on('value', function(snapshot) {
+var Beef = snapshot.val();
+    if (Beef != null && Beef !== undefined) {
+        $('#item_B_slice').empty().append(Beef.item_B_slice + " ½c");
+		$('#item_B_Lou').empty().append(Beef.item_B_Lou + " ½c");
+    }else{
+		$('#item_B_slice').empty().append("NIL");
+		$('#item_B_Lou').empty().append("NIL");
+	}
+
+});
+var SeafoodRef = database.ref('Seafood/');
+SeafoodRef.on('value', function(snapshot) {
+var Seafood = snapshot.val();
+    if (Seafood != null && Seafood !== undefined) {
+        $('#item_cod').empty().append(Seafood.item_cod + " ½c");
+		$('#item_fillet').empty().append(Seafood.item_fillet + " ½c");
+		$('#item_prawn').empty().append(Seafood.item_prawn + " ½c");
+		$('#item_scallop').empty().append(Seafood.item_scallop + " ½c");
+		$('#item_shell').empty().append(Seafood.item_shell + " ½c");
+		$('#item_squid').empty().append(Seafood.item_squid + " ½c");
+    }else{
+		$('#item_cod').empty().append("NIL");
+		$('#item_fillet').empty().append("NIL");
+		$('#item_prawn').empty().append("NIL");
+		$('#item_scallop').empty().append("NIL");
+		$('#item_shell').empty().append("NIL");
+		$('#item_squid').empty().append("NIL");
+	}
+
+});
+//EndOfLastDate
+});
+
+
+
+
+</script>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<style type="text/css">
+<!--
+.style1 {font-size: 24px}
+.style2 {
+	font-size: 22px;
+	margin: 0px;
+	text-decoration: none;
+	color: #333333;	
+}
+.style3 {font-size: 16px;	color: #333333;	}
+-->
+</style>
+</head>
+<body>
+<br>
+<table width="600" border="0" class="style1">
+  <tr>
+    <td width="10%">&nbsp;</td>
+    <td width="18%"><div align="center">ºI¦Ü</div></td>
+    <td colspan="2"><div id="LastUpdate" align="left"></div></div></td>
+  </tr>
+  <tr>
+    <td height="22">&nbsp;</td>
+    <td colspan="2"><hr></td>
+    <td width="30%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="22">&nbsp;</td>
+    <td colspan="2"><table width="100%" border="0" cellpadding="0" class="style2">
+
+      <tr>
+        <td width="8%" rowspan="5" bgcolor="#ECECEC"><div align="center">Âû</div></td>
+        <td width="30%"><div align="right">6mmÂûµ· </div></td>
+        <td width="4%">&nbsp;</td>
+        <td width="25%"><div align="right"><div id="item_6mm"></div></div></td>
+        <td width="33%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">1cmÂû¬h </div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_1cm">
+          </div>
+        </div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">1¦TÂû²É </div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_1inch"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">2¦TÂû²É </div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_2inch"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">ÂûÁl</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_wing"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="22">&nbsp;</td>
+    <td colspan="2"><table width="100%" border="0" cellpadding="0" class="style2">
+      <tr>
+        <td width="8%" rowspan="6" bgcolor="#ECECEC"><div align="center">½Þ</div></td>
+        <td width="30%"><div align="right">±ö¦×</div></td>
+        <td width="4%">&nbsp;</td>
+        <td width="25%"><div align="right"><div id="item_line"></div></div></td>
+        <td width="33%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">½Þ¥¶</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_chop"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">¦×²É</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_inch"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+	  <tr>
+        <td><div align="right">¦×µ·</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_P_mm"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">±Æ°©²É</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_sparerib"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">±ö¤ù</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_P_slice"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="22">&nbsp;</td>
+    <td colspan="2"><table width="100%" border="0" cellpadding="0" class="style2">
+      <tr>
+        <td width="8%" rowspan="2" bgcolor="#ECECEC"><div align="center">¤û</div></td>
+        <td width="30%"><div align="right">¤û¤ù</div></td>
+        <td width="4%">&nbsp;</td>
+        <td width="25%"><div align="right"><div id="item_B_slice"></div></div></td>
+        <td width="33%">&nbsp;</td>
+      </tr>
+      <tr>
+	    <td><div align="right">¤û¬h</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_B_Lou"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="22">&nbsp;</td>
+    <td colspan="2"><table width="100%" border="0" cellpadding="0" class="style2">
+      <tr>
+        <td width="8%" rowspan="6" bgcolor="#ECECEC"><div align="center">®üÂA</div></td>
+        <td width="30%"><div align="right">31/40 ½¼</div></td>
+        <td width="4%">&nbsp;</td>
+        <td width="25%"><div align="right"><div id="item_prawn"></div></div></td>
+        <td width="33%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">±a¤l</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_scallop"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">¾¥³½µ©</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_squid"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">»È³·³½</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_cod"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">´³¶ô</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_fillet"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right">¸Ã¦×</div></td>
+        <td>&nbsp;</td>
+        <td><div align="right"><div id="item_shell"></div></div></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="22">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br>
+<p>&nbsp;	</p>
+</body>
+
+</html> 
